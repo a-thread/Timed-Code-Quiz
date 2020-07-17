@@ -139,7 +139,6 @@ function buildQuestionCard() {
     choicesEl.appendChild(choices); // attaching each choice to one another
     choices.onclick = decisionClick; // registering "click" for user decicision
   });
-  };
 }
 
 // Determining function for user answer picks
