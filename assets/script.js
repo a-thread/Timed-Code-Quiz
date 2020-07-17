@@ -14,6 +14,8 @@ const buttonsEL = document.getElementById("buttons");
 // End Screen Variables
 const endScreen = document.getElementById("end-screen");
 const finalScore = document.getElementById("final-score");
+var initialsEl = document.getElementById('user-initials');
+var scoreSubmit = document.getElementById('score-submit');
 
 // Timer variable
 let timerDisplay = document.getElementById("timer");
@@ -108,9 +110,9 @@ const questions = [
 ];
 
 // Quiz variables
-let Q = 0;
-let correct = [];
-let secondsLeft = 60;
+var Q = 0;
+var correct = [];
+var secondsLeft = 60;
 
 // starting quiz functions
 function startQuiz() {
@@ -122,6 +124,7 @@ function startQuiz() {
 
 // When start button is clicked, the quiz will begin!
 startBtn.addEventListener("click", startQuiz);
+scoreSubmit.addEventListener("click", saveHighScore);
 
 // Building the question card
 function buildQuestionCard() {
@@ -154,9 +157,10 @@ function decisionClick() {
     rightWrongEl.textContent = "Right!"; // "Right!" is displayed on the screen
     secondsLeft += 10; // 10 seconds is added to the timer
 
+
     // If user chooses the wrong answer...
   } else {
-    correct.push(questions[Q]);
+   
     console.log("wrong");
     rightWrongEl.setAttribute("class", "wrong");
     rightWrongEl.setAttribute("style", "visibility: visible;");
@@ -164,7 +168,11 @@ function decisionClick() {
     secondsLeft -= 10; // 10 seconds is subtracted from the timer
   }
   Q++;
+  if (Q === questions.length) {
+    gameOver();
+  } else {
   buildQuestionCard();
+  }
 }
 
 // Timer function
@@ -184,5 +192,20 @@ function startTimer() {
 function gameOver() {
   questionCard.setAttribute("style", "display: none;"); // hiding the question card
   endScreen.setAttribute("style", "visibility: visible;"); // showing End Screen Card
-  finalScore.textContent = timerDisplay; // displays time left on the clock as User Score
+  // finalScore.textContent = timerDisplay; // displays time left on the clock as User Score
 }
+
+function saveHighScore() {
+  var initials = initialsEl.value.trim();
+  console.log(initials);
+  console.log(secondsLeft);
+  var score = {
+    initials: initials,
+    myscore: secondsLeft
+  }
+  window.localStorage.setItem("score", score)
+  console.log(localStorage)
+}
+
+
+// make high score page!
