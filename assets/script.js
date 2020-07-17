@@ -139,6 +139,9 @@ function buildQuestionCard() {
     choicesEl.appendChild(choices); // attaching each choice to one another
     choices.onclick = decisionClick; // registering "click" for user decicision
   });
+  // if (currentQuestion = question[end]) {
+  //   gameOver();
+  // }
 }
 
 // Determining function for user answer picks
