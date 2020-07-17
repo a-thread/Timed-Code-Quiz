@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap Styling -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!-- Local Styling -->
+    <link rel="stylesheet" href="./assets/style.css">
+
+    <title>Aiden's Code Quiz</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-dark bg-dark">
+        <h6 class="text-bold text-white" id="highScore">High Scores</h6>
+        <h6 class="text-bold text-white">Time Remaining: <span id="timer">60</span></h6>
+    </nav>
+    <br />
+
+    <!-- Start Screen Div -->
+    <div class="container rounded" id="start-screen">
+
+        <!-- Starting Screen: Title of Quiz -->
+        <header>
+            <h1 class="quiz-title">
+                Coding Quiz Challenge!
+            </h1>
+        </header>
+
+        <!-- Description of Quiz -->
+        <div class="startContent">
+            <p> Try to answer the following code-related questions within the time limit.
+                Keep in mind that incorrect answers will subtract ten seconds from your scoretime!
+            </p>
+        </div>
+
+        <!-- Start Button -->
+        <div class="row justify-content-center mx-auto">
+            <button id="start-btn" class="btn">Start Quiz</button>
+        </div>
+    </div>
+
+    <!-- Question Card Div -->
+    <div class="container question-card" id="question-card">
+
+        <!-- Question -->
+        <header>
+            <h2 id="question-title"> What are we doing? </h2>
+        </header>
+
+        <!-- Choices -->
+        <div id="choices"></div>
+        <div class="right" id="right-wrong">Right!</div>
+
+    </div>
+
+    <!--Finished Quiz Div -->
+    <div class="container rounded" id="end-screen">
+
+        <!-- Title: "All Done!" -->
+        <header>
+            <h3 id="end-screen-title">
+                All done!
+            </h3>
+        </header>
+
+        <!-- Final Score -->
+        <div class="final-score">
+            <h5>Your final score is: <span id="final-score"></span></p>
+        </div>
+
+        <!-- Initialing for Score -->
+        <form>
+            <div class="form-group row">
+                <label class="col-sm-3 col-form-label"><h5>Initial Here!</h5></label>
+                <div class="col-sm-3">
+                    <input type="text" readonly class="form-control-plaintext" id="user-initial"
+                        value="AHT">
+                </div>
+                <button type="submit" class="col-sm-6 initBtn">Submit</button>
+            </div>
+        </form>
+    </div>
+
+
+
+    <!-- Javascript -->
+    <script src="./assets/script.js"></script>
+</body>
+
+</html>

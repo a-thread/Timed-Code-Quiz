@@ -1,0 +1,140 @@
+/* Fonts! */
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,600;1,700;1,800&display=swap" rel="stylesheet">
+
+body {
+  background-color: lightgray;
+}
+.container {
+  place-content: center;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px 0px;
+  color: hsl(206, 17%, 28%);
+  font-size: 18px;
+  max-width: 800px;
+  padding: 30px 40px;
+  margin-top: 2rem;
+  background-color: #ffffff;
+}
+
+h1,
+h2,
+p {
+  text-align: center;
+  font-family: "Open Sans", sans-serif;
+}
+
+/* Start Screen Stylings */
+h1.quiz-title {
+  font-weight: 800;
+  font-style: italic;
+  justify-content: center;
+}
+div.startContent {
+  padding: 1.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+header::after {
+  content: " ";
+  display: block;
+  background: #e7e9eb;
+  height: 3px;
+  align-content: center;
+}
+
+button.btn {
+  border: none;
+  background-color: purple;
+  border-radius: 25px;
+  color: hsl(0, 0%, 100%);
+  display: inline-block;
+  font-size: 22px;
+  line-height: 22px;
+  margin-bottom: 16px;
+  padding: 14px 34px;
+  text-align: center;
+  cursor: pointer;
+}
+
+button[disabled] {
+  cursor: default;
+  background: #c0c7cf;
+}
+
+/* Question Card Stylings */
+#question-card {
+  margin-bottom: 2rem;
+  visibility: hidden;
+}
+
+/* .question-card {
+  display: none;
+} */
+
+#question-title {
+  text-align: left;
+  font-weight: 600;
+}
+
+.choice {
+  border: none;
+  background-color: hsl(204, 68%, 50%);
+  border-radius: 10px;
+  color: hsl(0, 0%, 100%);
+  display: block;
+  font-size: 22px;
+  line-height: 22px;
+  padding: 14px 10px 14px 10px;
+  margin: 5px 0px 5px 0px;
+}
+
+#right-wrong {
+  font-style: italic;
+  visibility: hidden;
+}
+
+/* End of Quiz Screen */
+#end-screen {
+  margin-bottom: 2rem;
+  visibility: hidden;
+}
+
+h3 {
+  font-weight: 700;
+}
+
+div.endscreen.h5 {
+  align-content: left;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 500;
+}
+
+div.final-score {
+  margin-top: 10px;
+}
+
+.initBtn {
+    border: none;
+    background-color: hsl(204, 68%, 50%);
+    border-radius: 25px;
+    color: hsl(0, 0%, 100%);
+    display: inline-block;
+    font-size: 18px;
+    line-height: 18px;
+    margin-bottom: 16px;
+    padding: 14px 18px;
+    text-align: center;
+    cursor: pointer;
+    max-width: fit-content;
+}
+
+/* Responsiveness for smaller screens */
+@media (max-width: 800px) {
+  .container {
+    width: 95%;
+  }
+  h1 {
+    font-weight: 600;
+    text-align: center;
+  }
+}
