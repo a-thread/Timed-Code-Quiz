@@ -14,8 +14,8 @@ const buttonsEL = document.getElementById("buttons");
 // End Screen Variables
 const endScreen = document.getElementById("end-screen");
 const finalScore = document.getElementById("final-score");
-var initialsEl = document.getElementById('user-initials');
-var scoreSubmit = document.getElementById('score-submit');
+var initialsEl = document.getElementById("user-initials");
+var scoreSubmit = document.getElementById("score-submit");
 
 // Timer variable
 let timerDisplay = document.getElementById("timer");
@@ -113,6 +113,7 @@ const questions = [
 var Q = 0;
 var correct = [];
 var secondsLeft = 60;
+var timerInterval;
 
 // starting quiz functions
 function startQuiz() {
@@ -142,9 +143,6 @@ function buildQuestionCard() {
     choicesEl.appendChild(choices); // attaching each choice to one another
     choices.onclick = decisionClick; // registering "click" for user decicision
   });
-  // if (currentQuestion = question[end]) {
-  //   gameOver();
-  // }
 }
 
 // Determining function for user answer picks
@@ -157,10 +155,8 @@ function decisionClick() {
     rightWrongEl.textContent = "Right!"; // "Right!" is displayed on the screen
     secondsLeft += 10; // 10 seconds is added to the timer
 
-
     // If user chooses the wrong answer...
   } else {
-   
     console.log("wrong");
     rightWrongEl.setAttribute("class", "wrong");
     rightWrongEl.setAttribute("style", "visibility: visible;");
@@ -171,20 +167,20 @@ function decisionClick() {
   if (Q === questions.length) {
     gameOver();
   } else {
-  buildQuestionCard();
+    buildQuestionCard();
   }
 }
 
 // Timer function
 function startTimer() {
-  setInterval(function () {
+  timerInterval = setInterval(function () {
     secondsLeft--; // decrements time left
     timerDisplay.textContent = secondsLeft; // displays remaining time on screen
 
     if (secondsLeft <= 0) {
       // if the timer is less than or equal to zero...
-      gameOver(); // ..."Game Over" function is fired.
-      timerDisplay.textContent = 0; // sets timer to 0
+      clearInterval(timerInterval); // timer is clearned and...
+      return gameOver(); // ..."Game Over" function is fired.
     }
   }, 1000);
 }
@@ -192,7 +188,13 @@ function startTimer() {
 function gameOver() {
   questionCard.setAttribute("style", "display: none;"); // hiding the question card
   endScreen.setAttribute("style", "visibility: visible;"); // showing End Screen Card
-  // finalScore.textContent = timerDisplay; // displays time left on the clock as User Score
+  clearInterval(timerInterval); // clearing the timer
+  timerDisplay.textContent = 0; // setting timer display to zero
+  finalScore.textContent = score; // displays time left on the clock as User Score
+
+  if (secondsLeft < 0) {
+    secondsLeft = 0;
+  }
 }
 
 function saveHighScore() {
@@ -201,11 +203,10 @@ function saveHighScore() {
   console.log(secondsLeft);
   var score = {
     initials: initials,
-    myscore: secondsLeft
-  }
-  window.localStorage.setItem("score", score)
-  console.log(localStorage)
+    myscore: secondsLeft,
+  };
+  window.localStorage.setItem("score", score);
+  console.log(localStorage);
 }
-
 
 // make high score page!

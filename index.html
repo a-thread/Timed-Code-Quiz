@@ -16,7 +16,7 @@
 
 <body>
     <nav class="navbar navbar-dark bg-dark">
-        <h6 class="text-bold text-white" id="highScore">High Scores</h6>
+        <h6 class="text-bold text-white" id="high-score-page">High Scores</h6>
         <h6 class="text-bold text-white">Time Remaining: <span id="timer">60</span></h6>
     </nav>
     <br />
@@ -61,32 +61,54 @@
     <!--Finished Quiz Div -->
     <div class="container rounded" id="end-screen">
 
-        <!-- Title: "All Done!" -->
+        <!-- Title -->
         <header>
             <h3 id="end-screen-title">
                 All done!
             </h3>
         </header>
 
-        <!-- Final Score -->
+        <!-- User Score -->
         <div class="final-score">
             <h5>Your final score is: <span id="final-score"></span></p>
         </div>
 
         <!-- Initialing for Score -->
         <div class="row">
-            <div class="col-sm-3">
-                <input type="text" id="user-initials" placeholder="enter initals">
+            <div class="col-sm-5">
+                <input type="text" id="user-initials" placeholder="enter your initials">
             </div>
             <button class="col-sm-6 btn" id="score-submit">Submit</button>
         </div>
+    </div>
+
+    <!--High Score Div -->
+    <div class="container rounded" id="high-score">
+
+        <!-- Title -->
+        <header>
+            <h3 id="high-score-title">
+                Highscores
+            </h3>
+        </header>
+
+        <!-- log of high scores -->
+        <div class="final-score">
+        </div>
+
+        <!-- Initialing for Score -->
+        <div class="row">
+            <button class="col-sm-5 btn" id="go-back">back</button>
+            <button class="col-sm-5 btn" id="clear-scores">clear</button>
+        </div>
+    </div>
 
 
 
 
 
-        <!-- Javascript -->
-        <script src="./assets/script.js"></script>
+    <!-- Javascript -->
+    <script src="./assets/script.js"></script>
 </body>
 
 </html>

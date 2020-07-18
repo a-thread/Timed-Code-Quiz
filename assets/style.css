@@ -54,6 +54,7 @@ button.btn {
   padding: 14px 34px;
   text-align: center;
   cursor: pointer;
+  max-width: 200px;
 }
 
 button[disabled] {
@@ -66,10 +67,6 @@ button[disabled] {
   margin-bottom: 2rem;
   visibility: hidden;
 }
-
-/* .question-card {
-  display: none;
-} */
 
 #question-title {
   text-align: left;
@@ -113,7 +110,19 @@ div.final-score {
   margin-top: 10px;
 }
 
-.initBtn {
+#score-submit {
+  max-width: 150px;
+  font-size: 18px;
+  line-height: 18px;
+  background-color:  hsl(204, 68%, 50%);
+}
+
+/* Highscore Screen */
+#high-score {
+  visibility: hidden;
+}
+
+#go-back, #clear-scores {
     border: none;
     background-color: hsl(204, 68%, 50%);
     border-radius: 25px;
@@ -126,6 +135,7 @@ div.final-score {
     text-align: center;
     cursor: pointer;
     max-width: fit-content;
+    margin-right: 1rem;
 }
 
 /* Responsiveness for smaller screens */
