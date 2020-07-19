@@ -164,10 +164,10 @@ function decisionClick() {
     secondsLeft -= 10; // 10 seconds is subtracted from the timer
   }
   Q++;
-  if (Q === questions.length) {
-    gameOver();
-  } else {
-    buildQuestionCard();
+  if (Q === questions.length) { // if the user answers all of the questions..
+    gameOver(); // ...the game ends...
+  } else { // ...otherwise...
+    buildQuestionCard(); // ...it continues.
   }
 }
 
