@@ -190,23 +190,19 @@ function gameOver() {
   endScreen.setAttribute("style", "visibility: visible;"); // showing End Screen Card
   clearInterval(timerInterval); // clearing the timer
   timerDisplay.textContent = 0; // setting timer display to zero
-  finalScore.textContent = score; // displays time left on the clock as User Score
+  finalScore.textContent = secondsLeft; // displays time left on the clock as User Score
 
-  if (secondsLeft < 0) {
+  if (secondsLeft < 0) { // preventing the time to go below zero
     secondsLeft = 0;
   }
 }
 
-function saveHighScore() {
-  var initials = initialsEl.value.trim();
-  console.log(initials);
-  console.log(secondsLeft);
-  var score = {
-    initials: initials,
-    myscore: secondsLeft,
-  };
-  window.localStorage.setItem("score", score);
-  console.log(localStorage);
-}
+// function saveHighScore() {
+//   if (typeof(Storage) !== "undefined") {
+//     localStorage.setItem("initials", "undefined");
+//     initialsEl.innerHTML = localStorage.getItem("initials");
+//   } else {
+//     initialsEl.innerHTML = 
+//   }
+// }
 
-// make high score page!
