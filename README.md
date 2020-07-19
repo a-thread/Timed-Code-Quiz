@@ -22,7 +22,7 @@ As reqested in the prompt, when the user selected a correct answer, 10 seconds i
 
 When the user selected a wrong answer, 10 seconds is subtracted from the clock and "Wrong" is displayed below the next question.
 
-![Wrong Answer](/assets/images/timer-correct.gif)
+![Wrong Answer](/assets/images/timer-wrong.gif)
 
 The user's final score is determined by the time left on the clock and is displayed on the EndGame screen. 
 ![endScreen showing score](/assets/images/endScreen.png)
