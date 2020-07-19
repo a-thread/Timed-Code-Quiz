@@ -21,7 +21,7 @@ p {
 
 /* Start Screen Stylings */
 h1.quiz-title {
-  font-weight: 800;
+  font-weight: 700;
   font-style: italic;
   justify-content: center;
 }
@@ -115,7 +115,7 @@ div.final-score {
 }
 
 /* Highscore Screen */
-#high-score {
+#high-score-screen {
   visibility: hidden;
 }
 

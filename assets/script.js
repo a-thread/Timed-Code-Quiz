@@ -7,15 +7,18 @@ const startScreenEl = document.getElementById("start-screen");
 // Quiz screen variables
 const questionCard = document.getElementById("question-card");
 const questionTitleEl = document.getElementById("question-title");
-let choicesEl = document.getElementById("choices");
+const choicesEl = document.getElementById("choices");
 const rightWrongEl = document.getElementById("right-wrong");
 const buttonsEL = document.getElementById("buttons");
 
 // End Screen Variables
 const endScreen = document.getElementById("end-screen");
-const finalScore = document.getElementById("final-score");
-var initialsEl = document.getElementById("user-initials");
-var scoreSubmit = document.getElementById("score-submit");
+const initialsFormEl = document.getElementById("user-initials");
+let initialsSubmit = document.getElementById("initials-submit");
+
+// Final Score Screen
+const finalScoreEl = document.getElementById("final-score");
+const highScoreScreen = document.getElementById("high-score-screen");
 
 // Timer variable
 let timerDisplay = document.getElementById("timer");
@@ -125,7 +128,6 @@ function startQuiz() {
 
 // When start button is clicked, the quiz will begin!
 startBtn.addEventListener("click", startQuiz);
-scoreSubmit.addEventListener("click", saveHighScore);
 
 // Building the question card
 function buildQuestionCard() {
@@ -164,9 +166,11 @@ function decisionClick() {
     secondsLeft -= 10; // 10 seconds is subtracted from the timer
   }
   Q++;
-  if (Q === questions.length) { // if the user answers all of the questions..
+  if (Q === questions.length) {
+    // if the user answers all of the questions..
     gameOver(); // ...the game ends...
-  } else { // ...otherwise...
+  } else {
+    // ...otherwise...
     buildQuestionCard(); // ...it continues.
   }
 }
@@ -185,24 +189,62 @@ function startTimer() {
   }, 1000);
 }
 
+// End Quiz Screen
 function gameOver() {
   questionCard.setAttribute("style", "display: none;"); // hiding the question card
   endScreen.setAttribute("style", "visibility: visible;"); // showing End Screen Card
   clearInterval(timerInterval); // clearing the timer
   timerDisplay.textContent = 0; // setting timer display to zero
-  finalScore.textContent = secondsLeft; // displays time left on the clock as User Score
-
-  if (secondsLeft < 0) { // preventing the time to go below zero
+  if (secondsLeft < 0) {
+    // preventing the time to go below zero
     secondsLeft = 0;
   }
+  finalScoreEl.textContent = secondsLeft; // displays time left on the clock as User Score
 }
 
-// function saveHighScore() {
-//   if (typeof(Storage) !== "undefined") {
-//     localStorage.setItem("initials", "undefined");
-//     initialsEl.innerHTML = localStorage.getItem("initials");
-//   } else {
-//     initialsEl.innerHTML = 
-//   }
+// High Score Screen
+
+initialsSubmit.addEventListener('submit', function(event) {
+  //Add initials to score array
+  finalScoreEl.innerHTML += '<li>' + initialsFormEl.value + secondsLeft + "</li>";
+  // Clearing Input
+  initialsFormEl.value = '';
+  // Saving scores to local storage
+  localStorage.setItem('highScoreList', finalScoreEl.innerHtml)
+}, false);
+
+// Check for saved wishlist items
+var saved = localStorage.getItem('highScoreList');
+
+// If there are any saved items, update our list
+if (saved) {
+  finalScoreEl.innerHTML = saved;
+}
+
+initialsSubmit.addEventListener("click", function() { // listening for that submit click
+  endScreen.setAttribute("style", "display: none;"); // hiding the endScreen
+  highScoreScreen.setAttribute("style", "visibility: visible;"); // showing the highScore Screen
+});
+
+// let scores = []; // creating empty array to put high scores
+
+// function saveScore(){
+//   const userInitials = initialsFormEl.value; // saving the initials from the form
+//   localStorage.setItem("scores", JSON.stringify(scores));
+
+// }
+// function buildScoreCard() {
+  
+//   finalScoreEl.innerHTML = ""; // Creating space inside the 'high score' element on HTML
+  
+//   finalScoreEl.finalScore.forEach(function (scores, i) {
+//     let userScore = userInitials + secondsLeft; // defining the highScore as user's initials w/ score
+//     const finalScore = document.createElement("button"); // creating buttons for high score
+    
+//     finalScore.setAttribute("class", "user score"); // setting class to choice to connect to css styling
+//     finalScore.setAttribute("value", newScore); // setting value to initials
+//     finalScore.textContent = newScore; // displaying the text to initials & their score
+//     finalScore.appendChild(userScore); // attaching each high score to another
+//   });
 // }
 
