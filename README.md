@@ -1,18 +1,16 @@
 # 04 Web APIs: Code Quiz
 
-[My Quiz](https://a-thread.github.io/Timed-Code-Quiz/)
+[My Code Quiz](https://a-thread.github.io/Timed-Code-Quiz/)
 
-The assignment was to create a timed multiple choice quiz that was responsive to multiple screen sizes and had a clean interface.
+## Description
 
-## My Quiz
-
-I created a simple quiz, matching the example that was given to us. As requested, the timer begins once the user clicks "Start Quiz" and it ends when the timer ends or the user answers all of the questions.
+**My Code Quiz** is a timed multiple choice quiz that tests the user on their coding knowledge. At the end of the game, the user is able to see their score, save it and add it to the high score list!
 
 ![Aiden's Quiz played start to finish](/assets/images/start-to-finish.gif)
 
-### Responsive Interface
-
-I used Bootstrap to make my screen as responsive as possible to multiple screen sizes. 
+### Technologies Used
+- Bootstrap
+- JavaScript
 
 ### Scoring
 
@@ -30,3 +28,5 @@ The user's final score is determined by the time left on the clock and is displa
 #### High Score Screen
 
 Unfortunately I ran out of time in this homework and wasn't able to finish my code for the High Score page.
+
+*If you have any questions or comments, please email [Aiden Threadgoode.](mailto:aiden.threadgoode@gmail.com)*
