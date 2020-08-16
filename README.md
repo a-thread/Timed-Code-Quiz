@@ -1,4 +1,4 @@
-# 04 Web APIs: Code Quiz
+# Timed Code Quiz
 ![license](https://img.shields.io/github/license/a-thread/Timed-Code-Quiz)
 
 #### [My Code Quiz](https://a-thread.github.io/Timed-Code-Quiz/)
