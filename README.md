@@ -9,9 +9,12 @@
 
 ![Aiden's Quiz played start to finish](/assets/images/start-to-finish.gif)
 
-### Technologies Used
-- Bootstrap
+### Tools Used
+- HTML
 - JavaScript
+- CSS
+- jQuery
+- Bootstrap
 
 ### Scoring
 
